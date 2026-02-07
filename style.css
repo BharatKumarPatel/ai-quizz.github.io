@@ -1,0 +1,446 @@
+/* =========================================
+   1. VARIABLES & RESET (The DNA)
+========================================= */
+:root {
+    /* PALETTE */
+    --beast-blue: #2962FF;   /* Main Background */
+    --beast-yellow: #FFEA00; /* Accents / Primary Buttons */
+    --beast-pink: #FF0080;   /* Highlights / Errors */
+    --beast-black: #000000;  /* Borders & Text */
+    --beast-white: #FFFFFF;  /* Card Backgrounds */
+    --beast-gray: #F4F4F5;   /* Input Backgrounds */
+
+    /* PHYSICS */
+    --border-thick: 4px solid var(--beast-black);
+    --shadow-hard: 8px 8px 0px var(--beast-black);
+    --shadow-hover: 12px 12px 0px var(--beast-black);
+    --radius-small: 0px;     /* Sharp corners prefered for this look */
+    --radius-card: 12px;     /* Slight rounding for cards */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--beast-blue);
+    color: var(--beast-black);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+/* TYPOGRAPHY */
+h1, h2, h3 {
+    font-family: 'Archivo Black', sans-serif;
+    text-transform: uppercase;
+    line-height: 0.95;
+}
+
+/* UTILITIES */
+.d-none { display: none !important; }
+.text-pink { color: var(--beast-pink) !important; }
+.text-white { color: var(--beast-white) !important; }
+.text-white-50 { color: rgba(255,255,255,0.7) !important; }
+.full-width { width: 100%; }
+
+/* =========================================
+   2. NAVBAR
+========================================= */
+nav {
+    background: var(--beast-white);
+    border-bottom: var(--border-thick);
+    padding: 15px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-logo {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: -1px;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.user-badge {
+    background: var(--beast-black);
+    color: var(--beast-white);
+    padding: 5px 15px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+}
+
+.btn-small {
+    background: transparent;
+    border: 2px solid var(--beast-black);
+    padding: 5px 15px;
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+.btn-small:hover {
+    background: var(--beast-pink);
+    color: white;
+}
+
+/* =========================================
+   3. MAIN WRAPPERS & CARDS
+========================================= */
+.main-wrapper {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.beast-card {
+    background: var(--beast-white);
+    border: var(--border-thick);
+    box-shadow: var(--shadow-hard);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+}
+
+/* Auth Card Specifics */
+.auth-card {
+    width: 100%;
+    max-width: 480px;
+    padding: 40px;
+}
+
+.beast-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+.dot { color: var(--beast-pink); }
+
+.subtitle {
+    font-weight: 800;
+    color: #555;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   4. FORMS & INPUTS
+========================================= */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 900;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.beast-input, .beast-select {
+    width: 100%;
+    padding: 15px;
+    background: var(--beast-gray);
+    border: var(--border-thick);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: 0.1s;
+}
+
+.beast-input:focus, .beast-select:focus {
+    outline: none;
+    background: white;
+    box-shadow: 4px 4px 0px var(--beast-pink);
+    transform: translate(-2px, -2px);
+}
+
+/* =========================================
+   5. BUTTONS
+========================================= */
+.btn-beast-primary {
+    display: block;
+    width: 100%;
+    background: var(--beast-yellow);
+    color: var(--beast-black);
+    font-size: 1.2rem;
+    font-weight: 900;
+    padding: 18px;
+    border: var(--border-thick);
+    box-shadow: 6px 6px 0px var(--beast-black);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: transform 0.1s, box-shadow 0.1s;
+    border-radius: 8px;
+}
+
+.btn-beast-primary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 10px 10px 0px var(--beast-black);
+    background: #fff;
+}
+
+.btn-beast-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--beast-black);
+}
+
+/* White Variant for colored cards */
+.btn-beast-white {
+    width: 100%;
+    background: white;
+    color: black;
+    border: var(--border-thick);
+    padding: 15px;
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0px black;
+    transition: 0.1s;
+}
+.btn-beast-white:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px black;
+}
+.btn-beast-white:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Link Buttons */
+.auth-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+.link-btn {
+    background: none;
+    border: none;
+    font-weight: 900;
+    cursor: pointer;
+    text-decoration: underline;
+    font-family: inherit;
+}
+.link-btn:hover { color: var(--beast-pink); }
+.divider { margin: 0 10px; opacity: 0.5; }
+
+/* =========================================
+   6. DASHBOARD STYLES
+========================================= */
+.marquee-strip {
+    background: var(--beast-yellow);
+    border-bottom: var(--border-thick);
+    padding: 15px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-content {
+    display: inline-block;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    animation: scroll 25s linear infinite;
+}
+
+@keyframes scroll { 
+    0% { transform: translateX(0); } 
+    100% { transform: translateX(-50%); } 
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.dash-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.user-greeting {
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 4px 4px 0px black;
+    -webkit-text-stroke: 2px black;
+    margin-bottom: 10px;
+}
+
+.highlight-text { color: var(--beast-yellow); }
+
+.class-badge {
+    display: inline-block;
+    background: black;
+    color: white;
+    padding: 10px 20px;
+    font-weight: 900;
+    transform: rotate(-2deg);
+    border: 2px solid white;
+}
+
+/* =========================================
+   7. GRID SYSTEM
+========================================= */
+.beast-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.grid-card {
+    border: var(--border-thick);
+    box-shadow: var(--shadow-hard);
+    border-radius: var(--radius-card);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px;
+    transition: 0.2s;
+}
+
+.grid-card:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 14px 14px 0px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+/* Card Colors */
+.card-yellow { background: var(--beast-yellow); }
+.card-pink { background: var(--beast-pink); color: white; }
+.card-blue { background: white; border: 4px solid var(--beast-blue); } /* Analytics Card */
+.card-white { background: white; }
+
+.span-full {
+    grid-column: span 3;
+}
+
+/* Card Internals */
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card-tag {
+    background: black;
+    color: white;
+    padding: 5px 12px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+.card-tag.white { background: white; color: black; }
+
+.icon-large { font-size: 2rem; }
+
+.card-body h2 { font-size: 2.5rem; margin-bottom: 5px; }
+.card-body p { font-weight: 700; opacity: 0.8; }
+
+.center-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-number { font-size: 5rem; font-family: 'Archivo Black'; line-height: 1; }
+.stat-label { font-weight: 900; letter-spacing: 1px; margin-top: 10px; }
+
+/* =========================================
+   8. MODALS & ALERTS
+========================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-card {
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+}
+
+.alert-box {
+    padding: 15px;
+    border: var(--border-thick);
+    background: var(--beast-pink);
+    color: white;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* =========================================
+   9. MOBILE RESPONSIVENESS
+========================================= */
+@media (max-width: 900px) {
+    .beast-grid { grid-template-columns: 1fr; }
+    .span-full { grid-column: span 1; }
+    .user-greeting { font-size: 2rem; }
+    .beast-title { font-size: 2.2rem; }
+    .nav-container { flex-direction: column; gap: 10px; }
+}
+
+/* --- QUIZ SPECIFIC STYLES --- */
+.sticky-top {
+    position: sticky;
+    top: 0;
+}
+
+.option-btn {
+    text-align: left;
+    transition: 0.2s;
+}
+
+.option-btn:hover {
+    background: #eee;
+}
+
+/* Result Colors */
+.border-green {
+    border-color: #00E676 !important;
+}
+.border-red {
+    border-color: #FF0080 !important;
+}
+
+/* Mobile Fix for Quiz Grid */
+@media (max-width: 600px) {
+    .options-grid {
+        grid-template-columns: 1fr !important; /* Stack options on mobile */
+    }
+}
